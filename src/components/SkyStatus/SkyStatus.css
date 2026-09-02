@@ -1,0 +1,90 @@
+.status {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  z-index: 450;
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  padding: 0 24px;
+  text-align: center;
+  pointer-events: none;
+  animation: status-in var(--slow) var(--ease) both;
+}
+
+@keyframes status-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.status__text {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+}
+
+/* An empty sky breathes so slowly you only notice if you stay. */
+.status--quiet .status__text {
+  animation: quiet 9s var(--ease) infinite;
+}
+
+@keyframes quiet {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+/* Looking up: a hairline that scans, rather than a spinner that shouts. */
+.status__scan {
+  width: 72px;
+  height: 1px;
+  background: var(--hairline-strong);
+  overflow: hidden;
+}
+
+.status__scan::after {
+  content: '';
+  display: block;
+  width: 36%;
+  height: 100%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-soft);
+  animation: scan 2.4s var(--ease) infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(280%);
+  }
+}
+
+.status--error .status__text {
+  color: var(--alert);
+}
+
+.status__retry {
+  pointer-events: auto;
+  padding: 10px 14px;
+  margin: -10px -14px;
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  transition: color var(--medium) var(--ease);
+}
+
+.status__retry:hover {
+  color: var(--accent);
+}

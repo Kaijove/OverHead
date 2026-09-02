@@ -1,0 +1,155 @@
+/* Both of these float over the sky just above the bottom rail, in the same voice as the card:
+   one hairline, a lot of blur, and no shadow heavy enough to look pasted on. */
+.find,
+.hunt {
+  position: absolute;
+  z-index: 560;
+  left: 50%;
+  bottom: calc(var(--safe-bottom) + 62px);
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 13px 17px;
+  max-width: min(360px, calc(100vw - 32px));
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  text-align: left;
+}
+
+.find__note {
+  width: 13px;
+  height: 13px;
+  flex: none;
+  margin-top: 2px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.2;
+  filter: drop-shadow(0 0 6px var(--accent-faint));
+}
+
+.find__note ellipse {
+  fill: var(--accent);
+  stroke: none;
+}
+
+/* ---- something was found ---- */
+.find {
+  border-color: var(--accent-faint);
+  animation:
+    find-in var(--slow) var(--ease) both,
+    find-out var(--slow) var(--ease) 5.8s both;
+}
+
+@keyframes find-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes find-out {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -6px);
+  }
+}
+
+.find__body {
+  display: grid;
+  gap: 3px;
+}
+
+.find__where {
+  margin: 0;
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.find__name {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+/* ---- the one clue ---- */
+.hunt {
+  pointer-events: auto;
+  cursor: pointer;
+  animation: find-in 900ms var(--ease) both;
+  transition:
+    opacity var(--slow) var(--ease),
+    border-color var(--medium) var(--ease);
+}
+
+.hunt:hover {
+  border-color: var(--hairline-strong);
+}
+
+.hunt__body {
+  display: grid;
+  gap: 4px;
+}
+
+.hunt__lead {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.hunt__sub {
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: var(--ink-dim);
+}
+
+.hunt__dismiss {
+  margin-top: 3px;
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* The aircraft card owns the bottom-left corner; step aside rather than sit on top of it. */
+@media (max-width: 600px) {
+  .find,
+  .hunt {
+    left: calc(var(--safe-left) + 12px);
+    right: calc(var(--safe-right) + 12px);
+    max-width: none;
+    transform: none;
+  }
+
+  @keyframes find-in {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes find-out {
+    to {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+}

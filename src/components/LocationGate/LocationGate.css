@@ -1,0 +1,205 @@
+.gate {
+  position: absolute;
+  inset: 0;
+  z-index: 700;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 22px;
+  padding: calc(var(--safe-top) + 32px) 28px calc(var(--safe-bottom) + 32px);
+  background: var(--void);
+  text-align: center;
+  animation: gate-in var(--slow) var(--ease) both;
+}
+
+@keyframes gate-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* A single soft light behind the words, so the first screen is not a flat black rectangle. */
+.gate__glow {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: min(560px, 90vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(95, 212, 205, 0.09) 0%, transparent 62%);
+  pointer-events: none;
+  animation: gate-breathe 11s var(--ease) infinite;
+}
+
+@keyframes gate-breathe {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+.gate__lead {
+  position: relative;
+  margin: 0;
+  max-width: 20ch;
+  font-size: 1.375rem;
+  font-weight: 300;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.gate__primary {
+  position: relative;
+  padding: 12px 26px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition:
+    border-color var(--medium) var(--ease),
+    color var(--medium) var(--ease),
+    box-shadow var(--medium) var(--ease);
+}
+
+.gate__primary:hover:not(:disabled) {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 24px -6px var(--accent-faint);
+}
+
+.gate__primary:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.gate__secondary {
+  position: relative;
+  padding: 10px 14px;
+  margin: -10px -14px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  transition: color var(--medium) var(--ease);
+}
+
+.gate__secondary:hover {
+  color: var(--ink-dim);
+}
+
+/* ---- search ---- */
+.gate__search {
+  position: relative;
+  width: min(340px, 82vw);
+  display: grid;
+  gap: 2px;
+}
+
+.gate__input {
+  width: 100%;
+  padding: 12px 2px;
+  border: none;
+  border-bottom: 1px solid var(--hairline-strong);
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  text-align: center;
+  outline: none;
+  transition: border-color var(--medium) var(--ease);
+}
+
+.gate__input::placeholder {
+  color: var(--ink-faint);
+}
+
+/* The underline is this field's focus indicator; the global ring on top of it would read as a
+   box drawn around nothing. */
+.gate__input:focus-visible {
+  border-color: var(--accent-soft);
+  outline: none;
+}
+
+.gate__results {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  max-height: 32vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline-strong) transparent;
+}
+
+.gate__results::-webkit-scrollbar {
+  width: 3px;
+}
+
+.gate__results::-webkit-scrollbar-thumb {
+  background: var(--hairline-strong);
+  border-radius: 3px;
+}
+
+.gate__result {
+  width: 100%;
+  padding: 12px 12px;
+  border-radius: var(--radius-soft);
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--ink-dim);
+  text-align: left;
+  transition:
+    background var(--quick) var(--ease),
+    color var(--quick) var(--ease);
+}
+
+.gate__result:hover {
+  background: rgba(190, 214, 226, 0.06);
+  color: var(--ink);
+}
+
+/* The only place the hunt is explained to someone who has never opened OVERHEAD before. */
+.gate__hunt {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 10px 0 0;
+  padding: 13px 16px;
+  max-width: min(330px, 82vw);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  background: rgba(12, 17, 25, 0.5);
+  font-size: 0.75rem;
+  font-weight: 300;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--ink-dim);
+}
+
+.gate__hunt svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  margin-top: 3px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.2;
+}
+
+.gate__hunt ellipse {
+  fill: var(--accent);
+  stroke: none;
+}

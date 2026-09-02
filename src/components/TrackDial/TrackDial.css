@@ -1,0 +1,245 @@
+.dial-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 600;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 26px;
+}
+
+/* The map stays visible behind it: this is a moment, not a different screen. */
+.dial-layer__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 11, 0.55);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  cursor: default;
+  animation: dial-veil var(--medium) var(--ease) both;
+}
+
+@keyframes dial-veil {
+  from {
+    opacity: 0;
+  }
+}
+
+.dial {
+  position: relative;
+  width: 310px;
+  height: 310px;
+  animation: dial-in var(--slow) var(--ease) both;
+}
+
+@keyframes dial-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+.dial__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.dial__track {
+  fill: none;
+  stroke: var(--hairline-strong);
+  stroke-width: 0.35;
+}
+
+/* ---- the points ---- */
+.dial__dot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.dial__pip {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-faint);
+  transition:
+    transform var(--medium) var(--ease),
+    background var(--medium) var(--ease),
+    box-shadow var(--medium) var(--ease);
+}
+
+.dial__dot:hover .dial__pip,
+.dial__dot:focus-visible .dial__pip {
+  transform: scale(1.5);
+}
+
+.dial__dot.is-current .dial__pip {
+  transform: scale(1.7);
+  box-shadow: 0 0 14px 2px var(--accent-soft);
+}
+
+/* Sealed: present, countable, and out of reach. */
+.dial__dot.is-locked {
+  cursor: default;
+}
+
+.dial__dot.is-locked .dial__pip {
+  width: 6px;
+  height: 6px;
+  background: var(--ink-faint);
+  box-shadow: none;
+  opacity: 0.55;
+}
+
+/* ---- the middle ---- */
+.dial__centre {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 168px;
+  height: 168px;
+  display: grid;
+  align-content: center;
+  gap: 5px;
+  padding: 0 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  text-align: center;
+  transition: border-color var(--medium) var(--ease);
+}
+
+.dial__centre:hover {
+  border-color: var(--hairline-strong);
+}
+
+.dial__centre.is-playing {
+  border-color: var(--accent-faint);
+}
+
+.dial__name {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.dial__centre.is-playing .dial__name {
+  color: var(--accent);
+}
+
+.dial__state {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* A standing reminder that the collection is not finished. */
+.dial__hunt {
+  position: relative;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+  animation: dial-in var(--slow) var(--ease) both;
+}
+
+/* ---- volume ---- */
+.volume {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(266px, 76vw);
+  padding: 11px 16px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  animation: dial-in var(--slow) var(--ease) both;
+}
+
+.volume__icon {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: var(--ink-dim);
+  stroke: none;
+}
+
+.volume__wave {
+  fill: none;
+  stroke: var(--ink-dim);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.volume__slider {
+  flex: 1;
+  height: 22px;
+  margin: 0;
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.volume__slider::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--hairline-strong);
+}
+
+.volume__slider::-moz-range-track {
+  height: 2px;
+  border-radius: 2px;
+  background: var(--hairline-strong);
+}
+
+.volume__slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -6px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-faint);
+}
+
+.volume__slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .dial {
+    width: 268px;
+    height: 268px;
+  }
+
+  .dial__centre {
+    width: 144px;
+    height: 144px;
+  }
+}

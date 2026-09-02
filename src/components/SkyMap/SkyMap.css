@@ -1,0 +1,112 @@
+.sky-map {
+  position: absolute;
+  inset: 0;
+  background: var(--void);
+}
+
+.sky-map .maplibregl-canvas {
+  outline: none;
+}
+
+/* Only the attribution survives, because the map data terms require it. Everything else
+   MapLibre wants to draw over the sky is removed. */
+.sky-map .maplibregl-ctrl-bottom-left,
+.sky-map .maplibregl-ctrl-top-left,
+.sky-map .maplibregl-ctrl-top-right,
+.sky-map .maplibregl-ctrl-attrib-inner a[href*='maplibre'] {
+  display: none;
+}
+
+.sky-map .maplibregl-ctrl-bottom-right {
+  z-index: 480;
+  margin: 0 calc(var(--safe-right) + 8px) calc(var(--safe-bottom) + 46px) 0;
+}
+
+.sky-map .maplibregl-ctrl-attrib {
+  background: none;
+  font-size: 0.5625rem;
+  color: var(--ink-faint);
+}
+
+.sky-map .maplibregl-ctrl-attrib a {
+  color: var(--ink-faint);
+}
+
+.sky-map .maplibregl-ctrl-attrib.maplibregl-compact {
+  min-height: 20px;
+  background: rgba(9, 13, 20, 0.5);
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Collapsed to a single glyph until someone asks. The credit is required; a paragraph of it
+   across the sky is not. */
+.sky-map .maplibregl-ctrl-attrib:not(.maplibregl-compact-show) .maplibregl-ctrl-attrib-inner {
+  display: none;
+}
+
+.sky-map .maplibregl-ctrl-attrib-button {
+  opacity: 0.32;
+  transition: opacity var(--medium) var(--ease);
+}
+
+.sky-map .maplibregl-ctrl-attrib-button:hover {
+  opacity: 0.8;
+}
+
+/* ---- the viewer ---- */
+.viewer {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.viewer__dot {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 0 1.5px rgba(5, 7, 11, 0.9),
+    0 0 14px 2px rgba(95, 212, 205, 0.7);
+}
+
+/* Two rings, half a cycle apart, so the pulse never fully stops. */
+.viewer__pulse {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  animation: viewer-pulse 5.6s var(--ease) infinite;
+}
+
+.viewer__pulse--offset {
+  animation-delay: 2.8s;
+}
+
+@keyframes viewer-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  70%,
+  100% {
+    transform: scale(6);
+    opacity: 0;
+  }
+}
+
+/* Hidden until a real heading arrives, so a desktop never sees a direction we cannot know. */
+.viewer__facing {
+  position: absolute;
+  inset: 0;
+  color: var(--accent);
+  opacity: 0;
+  transition: opacity var(--slow) var(--ease);
+}

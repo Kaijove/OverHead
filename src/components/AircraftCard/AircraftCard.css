@@ -1,0 +1,127 @@
+/*
+ * The card should read as a piece of the map that has come forward, not a panel dropped on top:
+ * one hairline, a lot of blur, and no shadow heavy enough to cast it into a different plane.
+ */
+.card {
+  position: absolute;
+  z-index: 550;
+  left: calc(var(--safe-left) + 20px);
+  bottom: calc(var(--safe-bottom) + 62px);
+  width: 268px;
+  padding: 15px 17px 16px;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+  animation: card-in var(--slow) var(--ease) both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card__glyph {
+  width: 13px;
+  height: 13px;
+  flex: none;
+  margin-top: 3px;
+  fill: var(--accent);
+  filter: drop-shadow(0 0 5px var(--accent-faint));
+  transition: transform var(--slow) var(--ease);
+}
+
+.card__identity {
+  min-width: 0;
+}
+
+.card__callsign {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+
+.card__operator {
+  margin: 2px 0 0;
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--ink-dim);
+}
+
+.card__close {
+  margin: -8px -8px 0 auto;
+  padding: 9px;
+  flex: none;
+  border-radius: 50%;
+  color: var(--ink-faint);
+  transition:
+    color var(--quick) var(--ease),
+    background var(--quick) var(--ease);
+}
+
+.card__close:hover {
+  color: var(--ink);
+  background: rgba(190, 214, 226, 0.07);
+}
+
+/* No headings above the numbers: every one of them carries its own unit. */
+.card__readings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px 14px;
+  margin: 16px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+}
+
+.card__reading {
+  margin: 0;
+}
+
+.card__value {
+  margin: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.card__value--accent {
+  color: var(--accent);
+}
+
+.card__unit {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--ink-faint);
+}
+
+.card__climb {
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .card {
+    left: calc(var(--safe-left) + 12px);
+    right: calc(var(--safe-right) + 12px);
+    bottom: calc(var(--safe-bottom) + 56px);
+    width: auto;
+  }
+}

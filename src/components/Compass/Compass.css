@@ -1,0 +1,125 @@
+.compass {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  pointer-events: none;
+}
+
+.compass__face {
+  width: 88px;
+  height: 88px;
+  position: relative;
+  pointer-events: auto;
+  border-radius: 50%;
+  transition: opacity var(--medium) var(--ease);
+}
+
+.compass__face:disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.compass__dial {
+  position: absolute;
+  inset: 0;
+  /* No CSS transition: the bearing already arrives frame by frame from the map itself, and
+     easing it again would only add lag on top of lag. */
+}
+
+.compass__dial svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.compass__ring {
+  fill: rgba(9, 13, 20, 0.5);
+  stroke: var(--hairline-strong);
+  stroke-width: 1;
+}
+
+.compass__tick {
+  stroke: var(--hairline-strong);
+  stroke-width: 1;
+}
+
+.compass__cardinal {
+  fill: var(--ink-dim);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.compass__cardinal--north {
+  fill: var(--ink-dim);
+}
+
+.compass__north {
+  fill: var(--accent);
+}
+
+.compass__face:hover .compass__ring {
+  stroke: var(--accent-soft);
+}
+
+/* Following: the dial is live, so it gets the only glow on this control. */
+.compass--following .compass__ring {
+  stroke: var(--accent-soft);
+  filter: drop-shadow(0 0 6px var(--accent-faint));
+}
+
+.compass__readout {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+
+.compass--following .compass__readout {
+  color: var(--accent);
+}
+
+/* The way back to north. It does not exist until the map has been turned. */
+.compass__reset {
+  pointer-events: none;
+  opacity: 0;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 50%;
+  background: rgba(9, 13, 20, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-dim);
+  transition:
+    opacity var(--medium) var(--ease),
+    color var(--medium) var(--ease),
+    border-color var(--medium) var(--ease);
+}
+
+.compass__reset:hover {
+  color: var(--accent);
+  border-color: var(--accent-soft);
+}
+
+@media (max-width: 600px) {
+  .compass__face {
+    width: 74px;
+    height: 74px;
+  }
+}
+
+@media (max-height: 480px) {
+  .compass__face {
+    width: 62px;
+    height: 62px;
+  }
+}

@@ -1,0 +1,115 @@
+/*
+ * OVERHEAD's whole palette and type scale.
+ *
+ * Almost-black with a blue cast, one cold accent, and nothing else. Colour appears only where it
+ * means something: you are here, this is live, this one is selected.
+ */
+:root {
+  color-scheme: dark;
+
+  --void: #05070b;
+  --deep: #090d14;
+  --surface: rgba(12, 17, 25, 0.72);
+  --hairline: rgba(190, 214, 226, 0.08);
+  --hairline-strong: rgba(190, 214, 226, 0.15);
+
+  --ink: #e9eef2;
+  --ink-dim: #93a3b0;
+  --ink-faint: #6e7f8d;
+
+  --accent: #5fd4cd;
+  --accent-soft: rgba(95, 212, 205, 0.45);
+  --accent-faint: rgba(95, 212, 205, 0.14);
+  --alert: #e0796b;
+
+  /* Slow and small. Nothing in OVERHEAD should ever feel eager. */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --slow: 700ms;
+  --medium: 340ms;
+  --quick: 180ms;
+
+  --radius-card: 16px;
+  --radius-soft: 10px;
+  --radius-pill: 999px;
+
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  font-family: Manrope, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--void);
+  color: var(--ink);
+  overscroll-behavior: none;
+  /* The map owns every gesture on this page. */
+  touch-action: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* One focus ring for the whole app, so keyboard users get the same answer everywhere. */
+:focus-visible {
+  outline: 1px solid var(--accent-soft);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Numbers are readings: they line up and never reflow as they tick. */
+.readout {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+/* Present for screen readers, absent from the design. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.label {
+  font-size: 0.5625rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

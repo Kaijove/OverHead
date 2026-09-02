@@ -1,0 +1,570 @@
+.about {
+  position: absolute;
+  inset: 0;
+  z-index: 800;
+  display: flex;
+  justify-content: center;
+  padding: calc(var(--safe-top) + clamp(12px, 2.2vh, 20px)) 24px
+    calc(var(--safe-bottom) + clamp(14px, 2.6vh, 24px));
+  background: var(--void);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: about-in var(--slow) var(--ease) both;
+}
+
+@keyframes about-in {
+  from {
+    opacity: 0;
+  }
+}
+
+/* One soft light behind the words, the same one the first screen uses. */
+.about__glow {
+  position: fixed;
+  left: 50%;
+  top: 34%;
+  width: min(760px, 130vw);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(95, 212, 205, 0.1) 0%, transparent 62%);
+  pointer-events: none;
+  animation: about-breathe 12s var(--ease) infinite;
+}
+
+@keyframes about-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.07);
+  }
+}
+
+.about__sheet {
+  position: relative;
+  width: min(440px, 100%);
+  margin: auto;
+  display: grid;
+  justify-items: center;
+  gap: clamp(7px, 1.8vh, 18px);
+  text-align: center;
+}
+
+/* Everything arrives in order, unhurried, so the eye is led down the page once. */
+.about__sheet > * {
+  animation: about-rise 900ms var(--ease) both;
+  animation-delay: calc(var(--i) * 110ms + 120ms);
+}
+
+@keyframes about-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+.about__mark {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.46em;
+  text-indent: 0.46em;
+  color: var(--ink-faint);
+}
+
+/* ---- the scene ---- */
+.about__scene {
+  width: 100%;
+  margin-bottom: -10px;
+}
+
+.about__sky {
+  display: block;
+  width: 100%;
+  height: clamp(52px, 10.8vh, 132px);
+  overflow: visible;
+}
+
+.about__stars circle {
+  fill: var(--ink);
+  opacity: 0.22;
+  animation: about-twinkle 5.5s ease-in-out infinite;
+}
+
+@keyframes about-twinkle {
+  0%,
+  100% {
+    opacity: 0.14;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.about__horizon {
+  fill: none;
+  stroke: var(--hairline-strong);
+  stroke-width: 1;
+}
+
+.about__dot {
+  fill: var(--accent);
+}
+
+.about__ping {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1;
+  transform-origin: 160px 85px;
+  animation: about-ping 4.2s var(--ease) infinite;
+}
+
+.about__ping--late {
+  animation-delay: 2.1s;
+}
+
+@keyframes about-ping {
+  from {
+    transform: scale(0.5);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(3.6);
+    opacity: 0;
+  }
+}
+
+/*
+ * The line between you and the aeroplane. It is invisible almost all of the time and lights up
+ * only as the aeroplane reaches the middle -- which is the entire point of the app, animated.
+ */
+.about__beam {
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 2 5;
+  opacity: 0;
+  animation: about-beam 13s linear infinite;
+}
+
+@keyframes about-beam {
+  0%,
+  38%,
+  62%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.about__flight {
+  animation: about-cross 13s linear infinite;
+}
+
+@keyframes about-cross {
+  from {
+    transform: translateX(-10px);
+  }
+  to {
+    transform: translateX(350px);
+  }
+}
+
+.about__plane {
+  fill: var(--ink);
+  filter: drop-shadow(0 0 5px rgba(233, 238, 242, 0.45));
+}
+
+.about__wake {
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 1 6;
+  opacity: 0.28;
+}
+
+/* ---- the words ---- */
+.about__lead {
+  margin: 0;
+  font-size: clamp(1.25rem, 3.5vh, 1.875rem);
+  font-weight: 300;
+  line-height: 1.24;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.about__sub {
+  margin: 0;
+  max-width: 34ch;
+  font-size: clamp(0.8125rem, 1.9vh, 0.9375rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+/* The one paragraph, kept narrow so no line is ever a chore to cross. */
+.about__body {
+  margin: 0;
+  max-width: 40ch;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.72;
+  color: var(--ink-dim);
+}
+
+/* The page keeps going below the fold, and both of these say so without a word. */
+.about__fade {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 130px;
+  background: linear-gradient(180deg, transparent, var(--void) 76%);
+  pointer-events: none;
+  animation: about-in var(--slow) var(--ease) both;
+}
+
+.about__more {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--safe-bottom) + 16px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: about-nudge 2.4s var(--ease) infinite;
+}
+
+.about__more svg {
+  display: block;
+  width: 24px;
+  height: 14px;
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes about-nudge {
+  0%,
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-50%, 6px);
+    opacity: 0.9;
+  }
+}
+
+/* ---- the beats ---- */
+.about__beats {
+  position: relative;
+  width: 100%;
+  margin: 2px 0 0;
+  padding: 0 0 0 52px;
+  list-style: none;
+  display: grid;
+  gap: clamp(10px, 2.35vh, 22px);
+  text-align: left;
+}
+
+.about__beat {
+  position: relative;
+}
+
+/*
+ * A hairline from each glyph to the next. Drawn per beat rather than down the whole list so it
+ * stops at the last one instead of trailing off under the songs.
+ */
+.about__beat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: -34.5px;
+  top: 30px;
+  bottom: -21px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--hairline-strong), var(--hairline));
+}
+
+.about__beat h2 {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.about__beat p {
+  margin: 5px 0 0;
+  font-size: clamp(0.75rem, 1.65vh, 0.875rem);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-dim);
+}
+
+.about__beat strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* The glyph sits on the thread, with the page colour behind it to break the line cleanly. */
+.about__glyph {
+  position: absolute;
+  left: -52px;
+  top: -6px;
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--void);
+}
+
+.about__glyph svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+}
+
+.g-ring {
+  opacity: 0.32;
+}
+
+.g-ring--in {
+  opacity: 0.16;
+}
+
+.g-sweep {
+  transform-origin: 17px 17px;
+  animation: about-spin 5s linear infinite;
+}
+
+@keyframes about-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.g-core {
+  fill: var(--accent);
+  stroke: none;
+}
+
+.g-pulse {
+  transform-origin: 17px 25px;
+  animation: about-ping 3.4s var(--ease) infinite;
+}
+
+.g-tiny {
+  opacity: 0.42;
+  fill: var(--accent);
+  stroke: none;
+  animation: about-tiny 3.4s var(--ease) infinite;
+}
+
+@keyframes about-tiny {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  40% {
+    opacity: 0.85;
+  }
+}
+
+.g-breath {
+  transform-origin: 17px 17px;
+  animation: about-breath 7s var(--ease) infinite;
+}
+
+.g-breath--in {
+  animation-delay: 3.5s;
+}
+
+/* In and out at a pace you could actually follow with your own lungs. */
+@keyframes about-breath {
+  0%,
+  100% {
+    transform: scale(0.42);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.22;
+  }
+}
+
+.g-note {
+  stroke-width: 1.4;
+}
+
+.g-head {
+  fill: var(--accent);
+  stroke: none;
+  animation: about-tiny 2.8s var(--ease) infinite;
+}
+
+.g-head--late {
+  animation-delay: 1.4s;
+}
+
+/* Every song, shown rather than counted. */
+.about__constellation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(7px, 1.2vh, 10px);
+  margin-top: clamp(7px, 1.3vh, 11px);
+}
+
+.about__song {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-faint);
+}
+
+/* The ones still out there breathe, out of step with each other, like something far away. */
+.about__song.is-locked {
+  width: 7px;
+  height: 7px;
+  margin: 1px;
+  background: var(--ink-faint);
+  box-shadow: none;
+  animation: about-flicker 3.4s var(--ease) infinite;
+}
+
+@keyframes about-flicker {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ---- one day ---- */
+.about__future {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  max-width: 40ch;
+  font-size: clamp(0.6875rem, 1.5vh, 0.8125rem);
+  font-weight: 300;
+  line-height: 1.55;
+  text-align: left;
+  color: var(--ink-faint);
+}
+
+.about__projector svg {
+  width: 38px;
+  height: 22px;
+  display: block;
+  fill: none;
+  stroke: var(--ink-faint);
+  stroke-width: 1.2;
+  stroke-linejoin: round;
+}
+
+.p-ceiling {
+  opacity: 0.5;
+}
+
+.p-cone {
+  fill: var(--accent);
+  stroke: none;
+  opacity: 0.2;
+  transform-origin: 8.5px 19px;
+  animation: about-throw 6s var(--ease) infinite;
+}
+
+@keyframes about-throw {
+  0%,
+  100% {
+    opacity: 0.12;
+  }
+  50% {
+    opacity: 0.38;
+  }
+}
+
+.about__enter {
+  margin-top: 0;
+  padding: clamp(11px, 1.8vh, 15px) 38px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  transition:
+    border-color var(--medium) var(--ease),
+    color var(--medium) var(--ease),
+    box-shadow var(--medium) var(--ease);
+}
+
+.about__enter:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+  box-shadow: 0 0 30px -6px var(--accent-faint);
+}
+
+@media (max-width: 600px) {
+  .about__beats {
+    padding-left: 44px;
+  }
+
+  .about__beat:not(:last-child)::after {
+    left: -30.5px;
+    bottom: -19px;
+  }
+
+  .about__glyph {
+    left: -46px;
+    width: 31px;
+    height: 31px;
+  }
+
+  .about__glyph svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Nothing here is worth making anyone ill for. */
+@media (prefers-reduced-motion: reduce) {
+  .about,
+  .about__sheet > *,
+  .about__glow,
+  .about__stars circle,
+  .about__ping,
+  .about__beam,
+  .about__flight,
+  .g-sweep,
+  .g-breath,
+  .g-pulse,
+  .g-tiny,
+  .g-head,
+  .p-cone,
+  .about__more,
+  .about__song.is-locked {
+    animation: none;
+  }
+
+  .about__ping,
+  .about__beam,
+  .g-pulse {
+    opacity: 0.3;
+  }
+}
