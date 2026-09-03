@@ -2,22 +2,39 @@
 
 A quiet little place to watch the sky, listen to music, study, relax, and just chill.
 
+---
+
+## 📖 Navigation
+
 [What is it?](#-what-is-overhead) · [Features](#-features) · [Run locally](#-run-locally) · [How it works](#-how-it-works)
 
-<p align="center">
-  <img src="./1m.png" width="32%" />
-  <img src="./2m.png" width="32%" />
-  <img src="./3m.png" width="32%" />
-</p>
+---
+
+<div align="center">
+  <img src="./1m.png" width="30%" alt="Screenshot 1" />
+  <img src="./2m.png" width="30%" alt="Screenshot 2" />
+  <img src="./3m.png" width="30%" alt="Screenshot 3" />
+</div>
+
+---
+
+## ✨ Features
+
+<div align="center">
 
 ![Live Aircraft](https://img.shields.io/badge/✈️_LIVE_AIRCRAFT-0EA5E9?style=flat-square&labelColor=0F172A)
 ![Interactive Map](https://img.shields.io/badge/🗺️_INTERACTIVE_MAP-6366F1?style=flat-square&labelColor=0F172A)
 ![Day & Night](https://img.shields.io/badge/🌙_DAY_&_NIGHT-8B5CF6?style=flat-square&labelColor=0F172A)
+
 ![Compass](https://img.shields.io/badge/🧭_COMPASS-14B8A6?style=flat-square&labelColor=0F172A)
 ![Ambient Audio](https://img.shields.io/badge/🎧_AMBIENT_AUDIO-A855F7?style=flat-square&labelColor=0F172A)
 ![Hidden Places](https://img.shields.io/badge/✨_HIDDEN_PLACES-F59E0B?style=flat-square&labelColor=0F172A)
+
 ![Explore Anywhere](https://img.shields.io/badge/🌍_EXPLORE_ANYWHERE-22C55E?style=flat-square&labelColor=0F172A)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=0F172A&logo=typescript&logoColor=white)
+
+</div>
+
 
 ## 🌌 What is OVERHEAD?
 
