@@ -12,8 +12,6 @@ A quiet little place to watch the sky, listen to music, study, relax, and just c
 
 <br>
 
-## ✨ Features
-
 <div align="center">
 
 ![Live Aircraft](https://img.shields.io/badge/✈️_LIVE_AIRCRAFT-0EA5E9?style=flat-square&labelColor=0F172A)
