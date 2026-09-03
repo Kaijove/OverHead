@@ -5,13 +5,12 @@ A quiet little place to watch the sky, listen to music, study, relax, and just c
 ---
 
 <p align="center">
-  <img src="./1m.png" width="31%" />
-  <img src="./2m.png" width="31%" />
-  <img src="./3m.png" width="31%" />
+  <img src="./1m.png" width="40%" />
+  <img src="./2m.png" width="40%" />
+  <img src="./3m.png" width="40%" />
 </p>
 
 <br>
----
 
 ## ✨ Features
 
