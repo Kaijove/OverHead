@@ -11,16 +11,14 @@
 <a href="#-what-is-overhead">What is it?</a> · <a href="#-features">Features</a> · <a href="#-run-locally">Run locally</a> · <a href="#-how-it-works">How it works</a>
 
 <br><br>
-
-![Live Aircraft](https://img.shields.io/badge/✈️_LIVE_AIRCRAFT-111827?style=flat-square)
-![Interactive Map](https://img.shields.io/badge/🗺️_INTERACTIVE_MAP-111827?style=flat-square)
-![Day & Night](https://img.shields.io/badge/🌙_DAY_&_NIGHT-111827?style=flat-square)
-![Compass](https://img.shields.io/badge/🧭_COMPASS-111827?style=flat-square)
-![Ambient Audio](https://img.shields.io/badge/🎧_AMBIENT_AUDIO-111827?style=flat-square)
-![Hidden Places](https://img.shields.io/badge/✨_HIDDEN_PLACES-111827?style=flat-square)
-![Location Search](https://img.shields.io/badge/🌍_LOCATION_SEARCH-111827?style=flat-square)
-![TypeScript](https://img.shields.io/badge/TypeScript-111827?style=flat-square&logo=typescript)
-</div>
+![Live Aircraft](https://img.shields.io/badge/✈️_LIVE_AIRCRAFT-0EA5E9?style=flat-square&labelColor=0F172A)
+![Interactive Map](https://img.shields.io/badge/🗺️_INTERACTIVE_MAP-6366F1?style=flat-square&labelColor=0F172A)
+![Day & Night](https://img.shields.io/badge/🌙_DAY_&_NIGHT-8B5CF6?style=flat-square&labelColor=0F172A)
+![Compass](https://img.shields.io/badge/🧭_COMPASS-14B8A6?style=flat-square&labelColor=0F172A)
+![Ambient Audio](https://img.shields.io/badge/🎧_AMBIENT_AUDIO-A855F7?style=flat-square&labelColor=0F172A)
+![Hidden Places](https://img.shields.io/badge/✨_HIDDEN_PLACES-F59E0B?style=flat-square&labelColor=0F172A)
+![Explore Anywhere](https://img.shields.io/badge/🌍_EXPLORE_ANYWHERE-22C55E?style=flat-square&labelColor=0F172A)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&labelColor=0F172A&logo=typescript&logoColor=white)
 
 ---
 
