@@ -11,9 +11,9 @@ A quiet little place to watch the sky, listen to music, study, relax, and just c
 ---
 
 <div align="center">
-  <img src="./1m.png" width="30%" alt="Screenshot 1" />
-  <img src="./2m.png" width="30%" alt="Screenshot 2" />
-  <img src="./3m.png" width="30%" alt="Screenshot 3" />
+  <img src="./1m.png" width="50%" alt="Screenshot 1" />
+  <img src="./2m.png" width="50%" alt="Screenshot 2" />
+  <img src="./3m.png" width="50%" alt="Screenshot 3" />
 </div>
 
 ---
