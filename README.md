@@ -1,140 +1,456 @@
-# OVERHEAD
+<div align="center">
 
-**See what's above you.**
+# ✈️ OVERHEAD
 
-✈ Live nearby aircraft · 🧭 Real compass · 🎧 Ambient audio · 📍 Your location
+### **Look up. See what's above you.**
 
-Somewhere above you there is an aeroplane. OVERHEAD shows you which one, where it is going and
-how far off it is — and nothing else. Leave it open, wait for one to cross your own dot, then go
-to the window and look up: it is really there.
+🌌 A quiet little place to watch the sky, listen to music, study, relax, and just chill.
 
-It is meant to be a quiet thing to have running while you do something else. One day it wants to
-be pointed at a ceiling.
+<br>
 
-## Run it
+<a href="#-what-is-overhead">What is it?</a> · <a href="#-features">Features</a> · <a href="#-run-locally">Run locally</a> · <a href="#-how-it-works">How it works</a>
+
+<br><br>
+
+![Live](https://img.shields.io/badge/✈️-LIVE_AIRCRAFT-111827?style=flat-square)
+![Map](https://img.shields.io/badge/🗺️-INTERACTIVE_MAP-111827?style=flat-square)
+![Compass](https://img.shields.io/badge/🧭-COMPASS-111827?style=flat-square)
+![Audio](https://img.shields.io/badge/🎧-AMBIENT_AUDIO-111827?style=flat-square)
+![TypeScript](https://img.shields.io/badge/TypeScript-111827?style=flat-square\&logo=typescript)
+
+</div>
+
+---
+
+## 🌌 What is OVERHEAD?
+
+Somewhere above you, there is probably an aeroplane.
+
+**OVERHEAD lets you see it.**
+
+Open the app, choose your location, and watch aircraft move across the sky around you in real time.
+
+Rotate the map. Follow the compass. Put on some ambient music. Leave it open while you're studying, working, relaxing — or just wondering what's flying above your head.
+
+Then, when an aircraft crosses your position...
+
+**look up. ✈️**
+
+---
+
+## ✨ Features
+
+|                       |                                                            |
+| --------------------- | ---------------------------------------------------------- |
+| ✈️ **Live aircraft**  | See nearby aircraft and watch them move across the map     |
+| 📍 **Your location**  | Start from your real location or choose somewhere manually |
+| 🧭 **Real compass**   | Use your device orientation to find north                  |
+| 🗺️ **Rotatable map** | Pan, zoom and rotate the world naturally                   |
+| 🌍 **Globe view**     | Zoom out and explore the planet                            |
+| 🌙 **Night Flight**   | A dark world of cities, roads and lights                   |
+| 🎧 **Ambient audio**  | Calm sounds for studying, relaxing or simply chilling      |
+| 🌍 **Hidden places**  | Discover ambient tracks hidden around the world            |
+| 💾 **Local memory**   | Remember selected locations and discoveries on your device |
+| ⚡ **Lightweight**     | No accounts, analytics, database or unnecessary backend    |
+
+---
+
+## 🛰️ Live sky
+
+Aircraft data comes from the **OpenSky Network**.
+
+OVERHEAD requests a small area around your location and displays the aircraft currently visible there.
+
+```text
+        🛰️ OpenSky
+             ↓
+       📡 Aircraft data
+             ↓
+         ✈️ OVERHEAD
+             ↓
+        🌌 Your sky
+```
+
+Aircraft positions are refreshed approximately every **15 seconds**.
+
+Instead of jumping between positions, aircraft are smoothly interpolated between updates so they feel like they're actually flying across the map.
+
+---
+
+## 🗺️ Explore the world
+
+The map isn't just something sitting underneath the aircraft.
+
+You can:
+
+```text
+🖐️  Pan       → Drag
+🔍  Zoom      → Scroll / Pinch
+🔄  Rotate    → Two fingers / Right-drag
+🧭  North     → Compass
+```
+
+The map can be rotated freely.
+
+When you've turned away from north, a small **N** appears beside the compass so you always know your orientation.
+
+If your device provides a real heading, tapping the compass can hand control of the map over to your device.
+
+### Three different directions
+
+OVERHEAD intentionally keeps these separate:
+
+* 🗺️ **Map bearing** — which way the map is rotated
+* ✈️ **Aircraft heading** — which way an aircraft is flying
+* 🧭 **Device heading** — which way you're physically facing
+
+Turning the map never changes the direction an aircraft is pointing.
+
+---
+
+## 🌙 Night Flight
+
+The world changes when you zoom out.
+
+OVERHEAD uses NASA's **VIIRS Black Marble** imagery for the global night view, combined with custom vector layers that keep cities, roads and runways sharp as you zoom in.
+
+At a distance:
+
+> 🌍 The planet glows.
+
+Closer:
+
+> 🏙️ Cities begin to appear.
+
+Closer still:
+
+> 🛣️ Roads and runways emerge.
+
+The transition is designed to feel continuous rather than like switching between two completely different maps.
+
+---
+
+## 🎧 Ambient mode
+
+OVERHEAD isn't meant to demand your attention.
+
+It's something you can leave open in the background while you:
+
+📚 study
+💻 work
+🌙 relax
+🎵 listen to music
+🧘 chill
+🌌 watch the sky
+
+Two ambient tracks are always available.
+
+Other tracks are hidden around the world and can be discovered by exploring different locations.
+
+The always-available ambience is generated directly in the browser using the **Web Audio API**.
+
+The hidden tracks live locally in `public/audio/`.
+
+> 🎧 **The sky doesn't need a playlist.**
+
+---
+
+## 🌍 The hidden places
+
+There are places hidden across the world.
+
+Some are near famous landmarks:
+
+* 🗼 Eiffel Tower
+* 🗻 Mount Fuji
+* 🏔️ Machu Picchu
+* 🌍 and others
+
+Nothing is presented as a checklist.
+
+Nothing tells you where everything is.
+
+Get close enough and a hidden place reveals itself.
+
+Once discovered, it stays remembered locally on your device.
+
+A faint glimmer may appear when an undiscovered place happens to be visible on the map — just enough to make you curious.
+
+---
+
+## 🔐 Privacy
+
+OVERHEAD is intentionally simple.
+
+* 📍 Your location is used to find nearby aircraft.
+* 💾 Manually selected places are stored locally.
+* 🚫 No accounts.
+* 🚫 No tracking.
+* 🚫 No analytics.
+* 🚫 No database.
+* 🚫 No user profiles.
+
+Your chosen location and discoveries stay in your browser's `localStorage`.
+
+---
+
+## 🔒 Permissions
+
+Nothing is requested unnecessarily.
+
+| Permission      | Behaviour                          |
+| --------------- | ---------------------------------- |
+| 📍 **Location** | Requested when opening the app     |
+| 🧭 **Compass**  | Requested only when needed         |
+| 🎧 **Audio**    | Starts only after user interaction |
+
+If you deny one of them, the rest of the application continues working.
+
+No location?
+
+→ Search for a place manually.
+
+No compass?
+
+→ Stay north-up.
+
+No audio?
+
+→ Keep exploring in silence.
+
+---
+
+## ⚡ Lightweight by design
+
+OVERHEAD doesn't need a huge stack.
+
+### Built with
+
+| Technology              | Purpose              |
+| ----------------------- | -------------------- |
+| ⚛️ **React 19**         | UI                   |
+| 🔷 **TypeScript**       | Application logic    |
+| ⚡ **Vite**              | Development & builds |
+| 🗺️ **MapLibre GL**     | Interactive map      |
+| 🛰️ **OpenSky Network** | Aircraft data        |
+| 🎧 **Web Audio API**    | Generated ambience   |
+| 🌍 **Nominatim**        | Place search         |
+
+No state management library.
+
+No database.
+
+No accounts.
+
+No analytics.
+
+No traditional backend.
+
+The map engine is loaded only when needed, keeping the initial application lightweight.
+
+---
+
+## 🚀 Run locally
 
 ```bash
+git clone <your-repository-url>
+cd overhead
+
 npm install
 npm run dev
 ```
 
-`npm run build` produces the production bundle; `npm run preview` serves it with the same API
-proxy as development.
+Build for production:
 
-## Stack
+```bash
+npm run build
+```
 
-Vite · React 19 · TypeScript · MapLibre GL. No state library, no backend, no database, no
-accounts, no analytics. Three runtime dependencies in total.
+Preview the production build:
 
-The map engine is loaded on demand: the first screen is a line of text and a search box, so it
-ships in ~70 kB gzip and the 257 kB map chunk only arrives once there is a place to draw.
+```bash
+npm run preview
+```
 
-## Data
+---
 
-Aircraft come from the [OpenSky Network](https://openskynetwork.github.io/opensky-api/rest.html)
-`/states/all` endpoint, queried with a bounding box around you and refreshed every 15 seconds.
-The map underneath comes in two looks, switched with the globe below the compass and remembered
-between visits:
+## 🔑 OpenSky API
 
-- **Satellite** (the default) is Esri World Imagery, desaturated and its highlights crushed so it
-  sits at night behind the aircraft instead of in front of them.
-- **Night** is NASA's VIIRS Black Marble — the whole planet's city lights — over OpenFreeMap
-  vector tiles for the coastline and borders, drawn through a style written by hand in
-  `src/map/style.ts` that asks for four things only.
+OVERHEAD works anonymously with OpenSky.
 
-The map is a globe. Zoom all the way out and it becomes the planet, with every buried song
-glowing on it at once.
+For higher API limits, create an OpenSky API client and add your credentials to `.env`:
 
-Both live in one style and are switched by toggling layer visibility, so changing the map never
-tears down the aircraft or the rings. Place search, for when the browser will not give up your
-location, is Nominatim. None of it needs a key.
+```env
+OPENSKY_CLIENT_ID=your_client_id
+OPENSKY_CLIENT_SECRET=your_client_secret
+```
 
-**There is one server file, `api/states.ts`, and it exists for a single reason:** OpenSky answers
-every request with `Access-Control-Allow-Origin: https://opensky-network.org`, so a browser on any
-other origin is blocked. It forwards a bounding box and returns the JSON. Nothing is stored, and
-no request from OVERHEAD ever carries who you are.
+See `.env.example` for the expected configuration.
 
-It is a serverless function in production and dev middleware locally — the same module either way,
-so the credentials, the bounding box clamp and the cache behave identically in both.
+The application handles rate limiting gracefully. If OpenSky responds with `429`, OVERHEAD waits for the requested amount of time while keeping the aircraft already visible on screen.
 
-### Credits and limits
+<details>
+<summary>🛰️ OpenSky limits & architecture</summary>
 
-Anonymous OpenSky access allows 400 credits a day, counted per IP — and every visitor shares the
-proxy's IP. The client polls every 15 seconds, sleeps while the tab is hidden, and the proxy snaps
-bounding boxes to a coarse grid and caches each for 10 seconds so neighbours cost one call between
-them.
+<br>
 
-Four hundred goes quickly if you are working on the app rather than just watching it. Create a
-free API client at [opensky-network.org](https://opensky-network.org/my-opensky/account) and set
-`OPENSKY_CLIENT_ID` and `OPENSKY_CLIENT_SECRET` (see `.env.example`) to raise it to 4,000 a day.
-The credentials work locally as well as deployed. Without them it stays anonymous, which is fine
-for one person watching their own sky.
+Anonymous OpenSky access provides a limited daily credit allowance.
 
-Out of credits, OpenSky returns 429 with the exact number of seconds to wait; OVERHEAD honours it,
-keeps whatever aircraft it already had on screen, and dims the LIVE pip rather than emptying the
-sky.
+Authenticated access provides a higher allowance.
 
-## Permissions
+The client polls approximately every 15 seconds and stops polling while the browser tab is hidden.
 
-Each is asked for only when it is needed, and refusing any of them leaves everything else working.
+The server-side `api/states.ts` function exists primarily because OpenSky's browser CORS policy does not allow arbitrary origins.
 
-| | |
-|---|---|
-| **Location** | Asked on open. Refuse it and you search for a place instead; that choice is remembered locally and a real device fix always takes priority over it. |
-| **Compass** | Never asked on load. On iOS the compass reads TAP FOR COMPASS and waits for you. Refused or unavailable, it sits north-up. |
-| **Audio** | Never plays until you press the note. Blocked by the browser, the control simply stays off. |
+It forwards the requested bounding box and returns the aircraft state data.
 
-Your location is used to query aircraft and is never sent anywhere else. Only a place you chose by
-name is stored, in `localStorage`, on your device.
+Nothing is stored.
 
-## The hunt
+The same module is used as a serverless function in production and as development middleware locally.
 
-Two ambient tracks are always there. Thirteen more are buried across the world — one over the
-Eiffel Tower, one over Mount Fuji, one over Machu Picchu, and so on through the wonders and the
-landmarks. Nothing is listed and nothing is marked: carry the map within about 140 km of one and
-it gives itself up, tells you where you were, and joins the rotation on the ambience control.
+</details>
 
-A buried place you have not found shows only a faint glimmer, and only while it happens to be on
-screen — enough to make you curious, not enough to give it away. Found ones keep a steady mark so
-you can go back. What you have found is remembered on your device and nowhere else.
+---
 
-Places and tracks are paired in `src/services/ambient/tracks.ts`; adding another is one entry.
+## 🧭 How it works
 
-## Ambience
+At its core, OVERHEAD is deliberately small:
 
-The two tracks that are always available carry no audio file at all: `src/services/ambient/`
-synthesises them with the Web Audio API from a recipe — a root note, a stack of intervals, a
-filter cutoff, a drift rate. The hidden ones are real files in `public/audio/`. Use only music you
-own or that is licensed for the purpose.
+```text
+📍 Location
+    ↓
+🗺️ Bounding box
+    ↓
+🛰️ OpenSky
+    ↓
+✈️ Aircraft states
+    ↓
+🌌 Map
+    ↓
+👀 Look up
+```
 
-## Turning the map
+The aircraft state contains information such as:
 
-Drag to pan, scroll or pinch to zoom, and rotate with two fingers on a phone or a right-drag
-(or ctrl-drag) on a desktop. The desktop rotation is angular rather than horizontal: the map
-follows your hand around the centre of the screen, one degree for one degree, so a full circle
-of the wrist is a full turn of the map.
+* ICAO24
+* callsign
+* position
+* altitude
+* velocity
+* heading
+* origin country
 
-### Night lights
+OVERHEAD cleans and normalises the data before displaying it.
 
-Night Flight starts as NASA's Black Marble, which is a photograph and stops having detail at
-around zoom 8. Rather than magnify its grain, the imagery fades out between zoom 7.5 and 9.8
-while four vector layers -- urban haze, a soft halo along every road, a bright filament inside
-it, and lit runways -- fade in over the same span. The light is the same amber either way, so
-the handover is invisible; what you see is a city assembling itself as you come down towards
-it, and staying sharp at any zoom because past that point it is drawn, not photographed. The compass follows the map's bearing, and a small **N** appears
-beside it only once you have turned away from north. Where the device reports a real heading,
-tapping the compass hands the map's rotation over to it.
+Aircraft positions are interpolated locally between API updates to keep movement smooth.
 
-Three angles exist here and they are never mixed: the map has a bearing, each aircraft has a
-heading, and the device has a facing. Turning the map never changes where an aircraft points.
+---
 
-## Known limitations
+## 🗺️ Map architecture
 
-- Coverage is whatever OpenSky's volunteer receivers can hear. Some regions are thin, and an empty
-  sky over the ocean is usually the network, not the traffic.
-- Positions are as fresh as the 15-second refresh; aircraft glide between reported points rather
-  than being tracked continuously.
-- Aircraft are drawn on the GPU and are not reachable by keyboard — ninety tab stops would be
-  worse than none.
-- The compass needs a magnetometer. Desktop gets an honest north-up dial rather than a simulated
-  needle.
+The map has two visual modes:
+
+### 🛰️ Satellite
+
+Esri World Imagery, heavily desaturated and darkened so the imagery stays behind the aircraft rather than competing with them.
+
+### 🌙 Night
+
+NASA VIIRS Black Marble combined with OpenFreeMap vector data and a custom map style.
+
+Both modes share the same map instance.
+
+Switching between them changes layer visibility rather than destroying and rebuilding the aircraft/map system.
+
+---
+
+## 🎧 Ambient architecture
+
+The two permanent ambient tracks don't require audio files.
+
+They are generated using a small Web Audio recipe:
+
+```text
+🎵 Root note
+   +
+🎵 Intervals
+   +
+🎚️ Filter
+   +
+🌊 Slow drift
+   ↓
+🎧 Ambient sound
+```
+
+Hidden tracks are stored in:
+
+```text
+public/audio/
+```
+
+Track definitions live in:
+
+```text
+src/services/ambient/tracks.ts
+```
+
+Adding another track is intentionally simple.
+
+> Only use audio you own or audio that is properly licensed for the project.
+
+---
+
+## 🛰️ API & caching
+
+The server function:
+
+```text
+api/states.ts
+```
+
+exists to proxy OpenSky requests.
+
+It also:
+
+* clamps bounding boxes
+* caches nearby requests
+* reduces duplicate requests
+* respects OpenSky rate limits
+
+Bounding boxes are snapped to a coarse grid so nearby users can share cached results instead of repeatedly hitting the API.
+
+---
+
+## ⚠️ Known limitations
+
+* 🛰️ Aircraft coverage depends on OpenSky's receiver network.
+* 🌊 Coverage can be sparse over oceans and some regions.
+* ⏱️ Positions are refreshed approximately every 15 seconds.
+* 🧭 Desktop devices generally don't provide a real magnetometer.
+* 📱 Compass behaviour depends on the device and browser.
+* ✈️ Aircraft markers are intentionally map-interactive rather than keyboard-focusable.
+
+---
+
+## 🙌 Credits
+
+OVERHEAD uses several open services and datasets:
+
+* 🛰️ [OpenSky Network](https://openskynetwork.github.io/opensky-api/rest.html) — aircraft data
+* 🌍 OpenStreetMap / OpenFreeMap — map data
+* 🌙 NASA VIIRS Black Marble — night imagery
+* 🛰️ Esri World Imagery — satellite imagery
+* 🔎 Nominatim — place search
+* 🗺️ MapLibre GL — map rendering
+
+---
+
+<div align="center">
+
+### 🌌 Made for quiet nights, curious minds and looking up.
+
+**✈️ OVERHEAD**
+
+If you like the project, consider giving it a ⭐
+
+</div>
