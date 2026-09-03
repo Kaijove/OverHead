@@ -12,11 +12,13 @@
 
 <br><br>
 
-![Live](https://img.shields.io/badge/✈️-LIVE_AIRCRAFT-111827?style=flat-square)
-![Map](https://img.shields.io/badge/🗺️-INTERACTIVE_MAP-111827?style=flat-square)
-![Compass](https://img.shields.io/badge/🧭-COMPASS-111827?style=flat-square)
-![Audio](https://img.shields.io/badge/🎧-AMBIENT_AUDIO-111827?style=flat-square)
-![TypeScript](https://img.shields.io/badge/TypeScript-111827?style=flat-square\&logo=typescript)
+![✈️ Live Aircraft](https://img.shields.io/badge/✈️_LIVE_AIRCRAFT-111827?style=flat-square)
+![🗺️ Interactive Map](https://img.shields.io/badge/🗺️_INTERACTIVE_MAP-111827?style=flat-square)
+![🌙 Day & Night](https://img.shields.io/badge/🌙_DAY_&_NIGHT-111827?style=flat-square)
+![🧭 Compass](https://img.shields.io/badge/🧭_COMPASS-111827?style=flat-square)
+![🎧 Ambient Audio](https://img.shields.io/badge/🎧_AMBIENT_AUDIO-111827?style=flat-square)
+![✨ Hidden Places](https://img.shields.io/badge/✨_HIDDEN_PLACES-111827?style=flat-square)
+![🌍 Explore Anywhere](https://img.shields.io/badge/🌍_EXPLORE_ANYWHERE-111827?style=flat-square)
 
 </div>
 
