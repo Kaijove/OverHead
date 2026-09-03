@@ -26,13 +26,27 @@
 
 Somewhere above you, there is probably an aeroplane.
 
-**OVERHEAD lets you see it.**
+**OVERHEAD lets you see it. ✈️**
 
-Open the app, choose your location, and watch aircraft move across the sky around you in real time.
+Open the app, choose your location, and discover the aircraft flying above and around you in real time. See where they are, where they're heading, how high they are, and watch them move across the sky.
 
-Rotate the map. Follow the compass. Put on some ambient music. Leave it open while you're studying, working, relaxing — or just wondering what's flying above your head.
+But OVERHEAD is more than just a live aircraft map.
 
-Then, when an aircraft crosses your position...
+🌤️ **Switch between day and night.** Explore the sky on a clean daytime map, or turn on **Night Flight** for a darker, atmospheric view with city lights, roads and runways glowing beneath you.
+
+🧭 **Rotate the world around you.** Move, zoom and rotate the map, follow the compass, and explore the sky from whichever direction you want.
+
+🎧 **Listen while you watch.** OVERHEAD includes ambient music designed for different moods — from calm sounds for studying or working to atmospheric tracks for late-night sky watching.
+
+✨ **Discover hidden places.** Some locations around the world hide special ambient experiences. Explore the map, find them, and unlock new sounds as you travel.
+
+🌍 **Search anywhere.** You don't have to be where you are. Search for a city or place and see what the sky looks like there.
+
+You can leave OVERHEAD open while studying, working, relaxing, listening to music, or simply wondering what's flying above you.
+
+And when an aircraft gets close to your position...
+
+**Look up. ✈️**
 
 **look up. ✈️**
 
