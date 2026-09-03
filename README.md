@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./overhead-readme.gif" width="100%" alt="OVERHEAD animated preview">
+</p>
+
 # ✈️ OVERHEAD
 
 A quiet little place to watch the sky, listen to music, study, relax, and just chill.
